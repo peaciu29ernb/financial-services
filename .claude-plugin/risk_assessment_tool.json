@@ -1,0 +1,48 @@
+{
+  "name": "risk_assessment",
+  "version": "1.0.0",
+  "description": "Evaluates financial risk profiles based on portfolio volatility, leverage, liquidity, and market exposure.",
+  "author": "financial-services",
+  "category": "risk-management",
+  "entrypoint": "src/plugins/risk_assessment/calculator.py",
+  "tool_definition": {
+    "name": "assess_financial_risk",
+    "description": "Calculates a composite risk score and profile for a given set of financial indicators. Returns a risk level (low/medium/high/critical), numeric score, contributing risk factors, and an actionable recommendation.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "portfolio_volatility": {
+          "type": "number",
+          "description": "Annualized portfolio volatility as a decimal (e.g., 0.25 for 25%).",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "debt_to_equity": {
+          "type": "number",
+          "description": "Debt-to-equity ratio of the entity being assessed.",
+          "minimum": 0
+        },
+        "liquidity_ratio": {
+          "type": "number",
+          "description": "Current ratio (current assets divided by current liabilities).",
+          "minimum": 0
+        },
+        "market_exposure": {
+          "type": "number",
+          "description": "Fraction of assets exposed to volatile markets (0.0 to 1.0).",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "credit_score": {
+          "type": "integer",
+          "description": "Optional FICO-style credit score (300–850).",
+          "minimum": 300,
+          "maximum": 850
+        }
+      },
+      "required": ["portfolio_volatility", "debt_to_equity", "liquidity_ratio", "market_exposure"]
+    }
+  },
+  "permissions": [],
+  "tags": ["risk", "finance", "portfolio", "compliance"]
+}
