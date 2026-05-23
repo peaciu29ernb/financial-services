@@ -48,6 +48,4 @@ Run `python3 scripts/check.py` before committing — it lints every manifest, ve
 3. Skills are invoked automatically based on context
 4. Run `python3 scripts/check.py` to validate before pushing
 
-> **Personal note:** I'm using this fork primarily to study the agent-plugin architecture and experiment
-> with the vertical-plugins layout. The `managed-agent-cookbooks/` structure is the main thing I'm
-> exploring — see my notes in `managed-agent-cookbooks/README.local.md` (gitignored).
+> **Personal note:** I'm using this fork primarily to explore the equity-research and portfolio-risk verticals. The `managed-agent-cookbooks/` structure is the most interesting part — good reference for how to wire up subagents cleanly.
