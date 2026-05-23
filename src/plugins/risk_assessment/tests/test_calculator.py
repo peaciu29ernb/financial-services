@@ -95,4 +95,5 @@ class TestCalculateRiskScore:
         )
         assert isinstance(profile, RiskProfile)
         assert profile.level in list(RiskLevel)
+        # Score should always be a valid number regardless of credit score input
         assert 0.0 <= profile.score <= 100.0
