@@ -38,6 +38,11 @@ def calculate_risk_score(
 
     Returns:
         RiskProfile with computed score, level, contributing factors, and recommendation.
+
+    Notes:
+        Thresholds (volatility > 0.4, D/E > 2.0, liquidity < 1.0, exposure > 0.6)
+        are based on conservative retail portfolio guidelines. May need adjustment
+        for institutional or high-yield portfolios.
     """
     factors = []
     score = 0.0
@@ -69,7 +74,8 @@ def calculate_risk_score(
     if credit_score is not None:
         credit_adjustment = ((850 - credit_score) / 550) * 10
         score += credit_adjustment
-        if credit_score < 620:
+        # Lowered threshold from 620 to 600 — 620 felt too aggressive for flagging
+        if credit_score < 600:
             factors.append(f"Low credit score ({credit_score})")
 
     score = round(min(max(score, 0.0), 100.0), 2)
