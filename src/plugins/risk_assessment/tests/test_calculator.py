@@ -82,7 +82,9 @@ class TestCalculateRiskScore:
         if profile.level == RiskLevel.MEDIUM:
             assert "rebalancing" in profile.recommendation.lower()
 
-    @pytest.mark.parametrize("credit_score", [300, 500, 620, 750, 850])
+    # NOTE: Added boundary credit scores (299, 851) to catch off-by-one edge
+    # cases at the min/max limits of the valid credit score range.
+    @pytest.mark.parametrize("credit_score", [299, 300, 500, 620, 750, 850, 851])
     def test_various_credit_scores_produce_valid_profiles(self, credit_score):
         profile = calculate_risk_score(
             portfolio_volatility=0.2,
@@ -92,4 +94,5 @@ class TestCalculateRiskScore:
             credit_score=credit_score,
         )
         assert isinstance(profile, RiskProfile)
+        assert profile.level in list(RiskLevel)
         assert 0.0 <= profile.score <= 100.0
