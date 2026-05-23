@@ -45,4 +45,9 @@ Run `python3 scripts/check.py` before committing — it lints every manifest, ve
 
 1. Edit markdown files directly - changes take effect immediately
 2. Test commands with `/plugin:command-name` syntax
-3. Skills are invoked automatically when their trigger conditions match
+3. Skills are invoked automatically based on context
+4. Run `python3 scripts/check.py` to validate before pushing
+
+> **Personal note:** I'm using this fork primarily to study the agent-plugin architecture and experiment
+> with the vertical-plugins layout. The `managed-agent-cookbooks/` structure is the main thing I'm
+> exploring — see my notes in `managed-agent-cookbooks/README.local.md` (gitignored).
