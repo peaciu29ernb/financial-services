@@ -88,11 +88,11 @@ def calculate_risk_score(
         recommendation = "Consider rebalancing to reduce identified risk factors."
     elif score < 75:
         level = RiskLevel.HIGH
-        # TODO: look into whether we should recommend specific asset classes here
-        recommendation = "Significant risk detected. Review and reduce exposure in flagged areas."
+        # Personal note: bumped recommendation wording to be more actionable
+        recommendation = "Significant risk detected. Review and reduce exposure in flagged areas promptly."
     else:
         level = RiskLevel.CRITICAL
-        recommendation = "Critical risk level. Immediate portfolio review strongly advised."
+        recommendation = "Critical risk level. Immediate portfolio review and intervention required."
 
     return RiskProfile(
         score=score,
