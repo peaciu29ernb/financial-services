@@ -47,8 +47,5 @@ Run `python3 scripts/check.py` before committing — it lints every manifest, ve
 2. Test commands with `/plugin:command-name` syntax
 3. Skills are invoked automatically based on context
 4. Run `python3 scripts/check.py` to validate before pushing
-5. Run `python3 scripts/sync-agent-skills.py` after editing any skill in `vertical-plugins/`
 
-## Personal Notes
-
-<!-- Personal fork — studying the agent-plugin dual-delivery pattern and how sync-agent-skills.py keeps bundled copies in sync. Not intended for production use. -->
+> **Personal note:** I'm using this fork primarily to study the agent-plugin architecture and experiment with the vertical-plugins structure. The `managed-agent-cookbooks/` layout is especially useful for understanding how subagents are composed — worth reading those READMEs first if you're new here.
