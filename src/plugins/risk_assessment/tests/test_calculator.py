@@ -95,5 +95,15 @@ class TestCalculateRiskScore:
         )
         assert isinstance(profile, RiskProfile)
         assert profile.level in list(RiskLevel)
-        # Score should always be a valid number regardless of credit score input
         assert 0.0 <= profile.score <= 100.0
+
+    # Personal note: added this test while learning how extreme debt loads affect
+    # scoring independently of other factors.
+    def test_high_debt_to_equity_flagged(self):
+        profile = calculate_risk_score(
+            portfolio_volatility=0.1,
+            debt_to_equity=5.0,
+            liquidity_ratio=2.0,
+            market_exposure=0.2,
+        )
+        assert any("debt" in f.lower() for f in profile.factors)
