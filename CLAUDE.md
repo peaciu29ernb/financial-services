@@ -49,4 +49,6 @@ Run `python3 scripts/check.py` before committing — it lints every manifest, ve
 4. Run `python3 scripts/check.py` to validate before pushing
 5. Run `python3 scripts/sync-agent-skills.py` after editing any skill in `vertical-plugins/`
 
-> **Personal note:** I'm using this fork primarily to explore the equity-research and portfolio-risk verticals. The `managed-agent-cookbooks/` structure is the most interesting part — good reference for how to wire subagents together.
+## Personal Notes
+
+<!-- Personal fork — studying the agent-plugin dual-delivery pattern and how sync-agent-skills.py keeps bundled copies in sync. Not intended for production use. -->
