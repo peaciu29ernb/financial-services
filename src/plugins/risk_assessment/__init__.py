@@ -1,3 +1,4 @@
+```
 """
 Risk Assessment Plugin for Claude Financial Services.
 
@@ -23,6 +24,8 @@ Notes (personal fork):
     - See calculator.py for score thresholds if you want to adjust sensitivity.
     - I've also exported RiskResult here for convenience since I kept needing
       to import it separately from calculator.py in my scripts.
+    - Also exporting get_risk_flags here since I use it frequently in my
+      analysis scripts to quickly check which indicators are problematic.
 """
 
 from .calculator import (
@@ -30,6 +33,7 @@ from .calculator import (
     RiskProfile,
     RiskResult,
     calculate_risk_score,
+    get_risk_flags,
 )
 
 __all__ = [
@@ -37,7 +41,9 @@ __all__ = [
     "RiskProfile",
     "RiskResult",
     "calculate_risk_score",
+    "get_risk_flags",
 ]
 
 __version__ = "0.1.0"
 __author__ = "Anthropic Financial Services Team"
+```
